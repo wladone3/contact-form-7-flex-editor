@@ -1,6 +1,14 @@
 <?php
-if ( ! function_exists('cfcflex_core_get_template')) {
-    function cfcflex_core_get_template($template_name, $args = [], $echo = true) {
+if ( ! function_exists('cffe_get_template')) {
+    /**
+     * Get template
+     *
+     * @sicne 0.2
+     * @param string $template_name path to template from plugin
+     * @param array $args all additional params
+     * @param bool $echo is print or return template as string
+     * */
+    function cffe_get_template($template_name, $args = [], $echo = true) {
         extract($args);
 
         if ( ! preg_match('/\.php/', $template_name) ) {

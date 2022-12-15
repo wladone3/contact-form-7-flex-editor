@@ -1,6 +1,6 @@
 <?php
 $post = $args['post'];
-$cfc = CFC_PlDugin_ws();
+$cfc = CFFE();
 $cfc_widgets = $cfc->get_widgets_with_category();
 
 $desc_link = wpcf7_link(
@@ -19,9 +19,9 @@ $description = sprintf( esc_html( $description ), $desc_link );
 
 <div class="cfc-wrapper-tabs">
     <div class="cfc-wrapper-tabs__header">
-        <div class="cfc-wrapper-tabs__title active">Редактор</div>
-        <div class="cfc-wrapper-tabs__title">Код</div>
-        <div class="cfc-wrapper-tabs__title">Данные виджетов</div>
+        <div class="cfc-wrapper-tabs__title active"><?php esc_html_e('Flex editor', 'cffe'); ?></div>
+        <div class="cfc-wrapper-tabs__title"><?php esc_html_e('Code', 'cffe'); ?></div>
+        <div class="cfc-wrapper-tabs__title"><?php esc_html_e('Widgets data', 'cffe'); ?></div>
     </div>
 
     <div class="cfc-wrapper-tabs__body">
@@ -36,14 +36,14 @@ $description = sprintf( esc_html( $description ), $desc_link );
 
                     <div class="cfc-panel__tabs">
                         <div class="cfc-panel__tabs-head f">
-                            <div class="cfc-panel__tab-head widgets active">Виджеты</div>
+                            <div class="cfc-panel__tab-head widgets active"><?php esc_html_e('Widgets', 'cffe'); ?></div>
 
                             <div class="cfc-panel__tab-head content">
                                 <div class="back f aic jcc">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
                                 </div>
-                                <span>Настройки</span>
 
+                                <span><?php esc_html_e('Settings', 'cffe'); ?></span>
                             </div>
                         </div>
 
@@ -65,7 +65,7 @@ $description = sprintf( esc_html( $description ), $desc_link );
                         </div>
 
                         <div class="cfc-panel__tab cfc-panel__tab-content" id="cfc-settings">
-                            <!--сюда вставляются настройки-->
+                            <!--here append settings of current widget by js-->
                         </div>
                     </div>
                 </div>

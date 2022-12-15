@@ -1,29 +1,53 @@
 <?php
+/**
+ * Widget class
+ *
+ * @class CFC_Flex_Container
+ * @since 0.2
+ * */
 final class CFC_Flex_Container extends CFC_Abstract_Widget {
 
+    /**
+     * Uniq id for widget
+     *
+     * @return string
+     * */
     public function get_name() {
         return 'flex-container';
     }
 
+    /**
+     * Set title for widget
+     *
+     * @return string
+     * */
     public function get_title() {
-        return 'Контейнер';
+        return __('Container', 'cffe');
     }
 
+    /**
+     * Set widget category
+     *
+     * @return string
+     * */
     public function get_category() {
         return 'layout';
     }
 
+    /**
+     * Widget settings
+     * */
     public function settings() {
         $this->set_setting(
             'direction',
             [
                 'type' => 'radio',
-                'title' => 'Направление',
+                'title' => __('Direction', 'cffe'),
                 'options' => [
-                    'row'    => 'Горизонтально',
-                    'column' => 'Вертикально',
-                    'row-reverse' => 'Горизонтально в обратном порядке',
-                    'column-reverse' => 'Вертикально в обратном порядке',
+                    'row'               => __('Horizontally', 'cffe'),
+                    'column'            => __('Vertically', 'cffe'),
+                    'row-reverse'       => __('Horizontally in reverse order', 'cffe'),
+                    'column-reverse'    => __('Vertically in reverse order', 'cffe'),
                 ],
                 'control_class' => 'column',
             ]
@@ -33,7 +57,7 @@ final class CFC_Flex_Container extends CFC_Abstract_Widget {
             'width',
             [
                 'type' => 'range',
-                'title' => 'Ширина контейнера',
+                'title' => __('Container width', 'cffe'),
                 'min' => 0,
                 'max' => 100,
                 'default' => 100,
@@ -44,7 +68,7 @@ final class CFC_Flex_Container extends CFC_Abstract_Widget {
             'width_unit',
             [
                 'type' => 'radio',
-                'title' => 'Единица изменрения ширины контейнера',
+                'title' => __('Unit for changing the width of the container', 'cffe'),
                 'options' => [
                     '%'     => '%',
                     'px'    => 'px',
@@ -57,14 +81,14 @@ final class CFC_Flex_Container extends CFC_Abstract_Widget {
             'justify_content',
             [
                 'type' => 'radio',
-                'title' => 'Распределение',
+                'title' => __('Justify content', 'cffe'),
                 'options' => [
-                    'j-start'     => 'Старт',
-                    'j-center'    => 'Центр',
-                    'j-end'       => 'Конец',
-                    'j-space-between' => 'Между елементами',
-                    'j-space-around' => 'Равномерное',
-                    'j-space-evenly' => 'Одинаковое',
+                    'j-start'     => __('Start', 'cffe'),
+                    'j-center'    => __('Center', 'cffe'),
+                    'j-end'       => __('End', 'cffe'),
+                    'j-space-between'   => __('Between elements', 'cffe'),
+                    'j-space-around'    => __('Uniform distance', 'cffe'),
+                    'j-space-evenly'    => __('Same distance', 'cffe'),
                 ],
                 'control_class' => 'column',
             ]
@@ -73,13 +97,13 @@ final class CFC_Flex_Container extends CFC_Abstract_Widget {
         $this->set_setting(
             'align_items',
             [
-                'type' => 'radio',
-                'title' => 'Выравнивание',
+                'type'  => 'radio',
+                'title' => __('Align items', 'cffe'),
                 'options' => [
-                    'a-start'     => 'Старт',
-                    'a-center'    => 'Центр',
-                    'a-end'       => 'Конец',
-                    'a-stretch' => 'Между елементами',
+                    'a-start'     => __('Start', 'cffe'),
+                    'a-center'    => __('Center', 'cffe'),
+                    'a-end'       => __('End', 'cffe'),
+                    'a-stretch'   => __('Between elements', 'cffe'),
                 ],
                 'control_class' => 'column',
             ]
@@ -89,11 +113,11 @@ final class CFC_Flex_Container extends CFC_Abstract_Widget {
             'text_align',
             [
                 'type' => 'radio',
-                'title' => 'Выравнивание текста',
+                'title' => __('Text align', 'cffe'),
                 'options' => [
-                    't-left'     => 'Лево',
-                    't-center'    => 'Центр',
-                    't-right'       => 'Право',
+                    't-left'     => __('Left', 'cffe'),
+                    't-center'   => __('Center', 'cffe'),
+                    't-right'    => __('Right', 'cffe'),
                 ],
                 'control_class' => 'column',
             ]
@@ -103,35 +127,40 @@ final class CFC_Flex_Container extends CFC_Abstract_Widget {
         $this->set_setting(
             'gap',
             [
-                'type' => 'range',
-                'title' => 'Растояние между виджетами',
-                'min' => 0,
-                'max' => 50,
-                'default' => 15
+                'type'      => 'range',
+                'title'     => __('Distance between widgets', 'cffe'),
+                'min'       => 0,
+                'max'       => 50,
+                'default'   => 15
             ]
         );
 
         $this->set_setting(
             'mob_adaptive',
             [
-                'type' => 'checkbox',
-                'title' => 'Переносить в строки на моб расширении (768px)',
-                'return' => 'adaptive',
-                'default' => 'adaptive',
+                'type'      => 'checkbox',
+                'title'     => __('Move to lines at the mod extension (768px)', 'cffe'),
+                'return'    => 'adaptive',
+                'default'   => 'adaptive',
             ]
         );
 
         $this->set_setting(
             'mob_reverse',
             [
-                'type' => 'checkbox',
-                'title' => 'Реверс строк на моб версии',
-                'return' => 'mob-reverse',
-                'default' => '',
+                'type'      => 'checkbox',
+                'title'     => __('Reverse the lines on the mobile version', 'cffe'),
+                'return'    => 'mob-reverse',
+                'default'   => '',
             ]
         );
     }
 
+    /**
+     * Render template
+     *
+     * {{setting_id}} - The value will be replaced by the corresponding setting
+     * */
     public function render() {
         ?>
         <div class="

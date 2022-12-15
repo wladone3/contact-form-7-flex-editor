@@ -1,11 +1,25 @@
 jQuery( function( $ ) {
-    class CFC {
-        /*
-        * Создаем начальные переменные
+
+    /*
+    * CFFE
+    *
+    * Main flex edit core
+    * */
+    class CFFE {
+
+        /**
+        * Create initial variables and run the desired methods
         * */
         constructor() {
 
-            //важные селекторы
+            /*
+             * Iportant selectors
+             *
+             * It was created to be convenient to refer to the selectors,
+             * but in fact turned out to be a bad idea
+             *
+             * todo do not store selectors in variables
+             * */
             this.adminElementTeplateID      = 'admin-controls'
             this.tabHeadSetiingSelector     = '.cfc-panel__tab-head.content'
             this.tabHeadWidgetSelector      = '.cfc-panel__tab-head.widgets'
@@ -18,20 +32,22 @@ jQuery( function( $ ) {
             this.deleteWidgetSelector       = '.admin-controls .delete'
             this.flexContainerSelector      = '.flex-container'
 
-            //Елементы в которые вставляються значения
+            /*
+             * Containers
+             * */
             this.elContainer    = document.querySelector('#cfc-container')
             this.elWidgets      = document.querySelector('#cfc-widgets')
             this.elSettings     = document.querySelector('#cfc-settings')
 
-            //темплейт для админчасти каждого виджета
+            //template for admin controls
             this.adminElementTemplate = document.getElementById( this.adminElementTeplateID).content
 
-            //Берем готовые настройки виджетов
+            //Widgets settings
             const widgetSettingsArea = document.querySelector('#cfc-widgets-settings').value
             this.widgetsSettings     = widgetSettingsArea ? JSON.parse( widgetSettingsArea ) : {}
             this.widgetContext       = {}
 
-            //флажки
+            //Flags
             this.isSettingsSectionOpen = false
             this.isDrag                = false
             this.isEdit                = false
@@ -40,6 +56,9 @@ jQuery( function( $ ) {
             this.actions()
         }
 
+        /**
+         * Init
+         * */
         init() {
             const
                 _this = this,
@@ -56,17 +75,15 @@ jQuery( function( $ ) {
                 },
                 revertOnSpill: true
             })
-
-
         }
 
-        /*
-        * События
-        * */
+        /**
+         * Actions
+         * */
         actions() {
             const _this = this;
 
-            //создаем перетаскивания
+            //set drag-n-drop settings
             this.drake
                 .on('drop', function (el, target, source, sibling) {
                     _this.insertWidget(el, target, source, sibling)
@@ -84,12 +101,13 @@ jQuery( function( $ ) {
                     _this.elContainer.classList.remove('movement')
                 })
 
-            //возвращаемся с панели настроек
             $(document)
+                //back to all widgets
                 .on('click', this.backToWidgetsSelector, function () {
                     _this.showWidgets()
                 })
 
+                //set setting from controller
                 .on('keyup change', '.cfc-control', function (e) {
                     let val = this.value;
 
@@ -108,10 +126,12 @@ jQuery( function( $ ) {
                     _this.isEdit = false
                 })
 
+                //if click was on not settings container
                 .on('click', function (e) {
                     _this.maybeCloseSettings(e)
                 })
 
+                //show and set settings to widget
                 .on('click', '.' + this.cfcfieldClassName, function (e) {
                     e.stopPropagation()
                     if ( _this.isDrag ) return
@@ -136,23 +156,23 @@ jQuery( function( $ ) {
                     _this.showSettings()
                 })
 
+                //delete widget
                 .on('click', this.deleteWidgetSelector, function (e) {
                     e.stopPropagation()
                     e.preventDefault()
                     _this.removeWidgets(this)
                     _this.showWidgets()
                 })
-
         }
 
         /*
-        * Вставка виджета после его переноса
+        * Insert widget after drop
         * */
         insertWidget(el, target, source, siblings) {
             const _this = this;
 
             if ( source.classList.contains('cfc-panel__tab__widgets') ) {
-                //удаляем виджет так как в темплейте нужно его отрендерить
+                //delete current placeholder
                 el.remove()
 
                 var widgetName              = el.dataset.widgetName,
@@ -164,14 +184,13 @@ jQuery( function( $ ) {
                 this.setWidgetContext(widgetId, widgetName)
                 this.createWidgetSettings()
 
-                //подставляем дефолтные значения
                 const template = this.renderTemplate()
 
-                //темплейт виджета
+                //admin template widget
                 renderWidget.classList.add(this.cfcfieldContentClassName)
                 renderWidget.innerHTML = template;
 
-                //админ обвертка виджета
+                //admin wrap of widget
                 widgetWrap.classList.add(this.cfcfieldClassName )
                 widgetWrap.classList.add(this.cfcfieldClassName + '-'+ widgetName)
                 widgetWrap.dataset.cfcWidgetId = widgetId
@@ -179,7 +198,7 @@ jQuery( function( $ ) {
                 widgetWrap.appendChild(adminElements)
                 widgetWrap.appendChild(renderWidget)
 
-                //если это контейнер то добавляем возможность в него перетаскивать
+                //if widget is container make him draggable
                 if ( widgetName === 'flex-container' ) {
                     this.drake.containers.push(widgetWrap.querySelector('.flex-container'))
                 }
@@ -195,6 +214,9 @@ jQuery( function( $ ) {
             }
         }
 
+        /*
+        * Get admin controls template
+        * */
         getAdminControls() {
             const
                 adminElementsTemplate   = this.adminElementTemplate,
@@ -204,14 +226,15 @@ jQuery( function( $ ) {
         }
 
         /*
-        * Устанавливаем контекст текущего виджета чтобы методы опирались на эти значения
+        * Set current widget context
+        * on this context will be based on the rest of the methods
         * */
         setWidgetContext(widgetId, widgetName) {
             this.widgetContext = {widgetId, widgetName}
         }
 
         /*
-        * Рендерим настройки
+        * Render settings on setting panel
         * */
         renderSettings() {
             const
@@ -220,16 +243,16 @@ jQuery( function( $ ) {
                 widgetData = CFCWidgetsData[ currentName ],
                 widgetSettings = this.getWidgetSettings(currentId)
 
-            //показываем заголовок текущего виджета
+            //show title of current widget
             $(this.tabHeadSettingNameSelector).text(widgetData.title)
 
-            //выводим елменты
+            //render elements
             this.elSettings.innerHTML = ''
 
             var controls = document.createElement('div');
             controls.innerHTML = widgetData.controls;
 
-            //устанавливаем настройки
+            //set settings
             controls.querySelectorAll( this.controlselector ).forEach( (el, i) => {
                 const settingName = el.dataset.settingId
 
@@ -249,16 +272,6 @@ jQuery( function( $ ) {
                             }
                             break;
 
-                        // case 'textarea':
-                        //     el.value = widgetSettings[settingName]
-                        //     console.log(widgetSettings[settingName])
-                        //     if ( currentName === 'cfc-code' && widgetSettings[settingName] === 'code') {
-                        //
-                        //         el.value = decodeHtml(widgetSettings[settingName])
-                        //     }
-                        //
-                        //     break;
-
                         default:
                             el.value = widgetSettings[settingName]
                             break
@@ -271,7 +284,7 @@ jQuery( function( $ ) {
         }
 
         /*
-        * Создаем настройки виджета когда еще настройки не вносились
+        * Create widget settings with default values
         * */
         createWidgetSettings() {
             let controlsList = CFCWidgetsData[this.widgetContext.widgetName].controls_default
@@ -285,15 +298,20 @@ jQuery( function( $ ) {
         }
 
         /*
-        * Обновляем настройки виджета
+        * Update widget settings
         * */
         updateSetting( settingId, newVal ) {
             this.widgetsSettings[this.widgetContext.widgetId][settingId] = newVal
             this.saveSettings()
         }
 
+        /*
+        * Make all .flex-container dragable
+        * 1. setup admin controls if form exist
+        * 2. set (if is init) or return containers to drag
+        * */
         makeContainersDragable(set = true) {
-            //Если форма уже есть то добавляем ей нужные елементы
+            //if form exist add admin controls
             const fields = document.querySelectorAll('.cfc-field'),
                 containers = [this.elContainer]
 
@@ -322,10 +340,9 @@ jQuery( function( $ ) {
         }
 
         /*
-        * Обновляем виджет
+        * Update widget with new data
         * */
         renderWidget() {
-            //находим текущий виджет
             let currentID     = this.widgetContext.widgetId,
                 selector        = '.' + this.cfcfieldClassName + '[data-cfc-widget-id='+ currentID +'] .' + this.cfcfieldContentClassName,
                 currentWidget   = document.querySelector(selector),
@@ -343,7 +360,9 @@ jQuery( function( $ ) {
         }
 
         /*
-        * Выводим контент в соответсвии с настройками
+        * render template
+        *
+        * if innerContent set, that mean is .flex-container
         * */
         renderTemplate( innerContent ) {
             let
@@ -362,7 +381,7 @@ jQuery( function( $ ) {
                 return content
             })
 
-            //Подразумевается что имеем дело только с контейнером
+            //It is assumed that we are dealing only with a container
             if ( innerContent ) {
                 template = template.replace('><', '>' + innerContent +'<')
             }
@@ -371,7 +390,7 @@ jQuery( function( $ ) {
         }
 
         /*
-        * Закрываем окно настроек при нажатии мимо
+        * Close the settings window when clicking past
         * */
         maybeCloseSettings(e) {
             var panel   = $('.' + this.cfcPanelClassName ),
@@ -390,13 +409,13 @@ jQuery( function( $ ) {
             }
         }
 
-        // удаляем контектс
+        // Remove context
         removeContext() {
             this.widgetContext = {}
         }
 
         /*
-        * Удаляем виджеты
+        * Remove widgets
         * */
         removeWidgets(el) {
             let field = $(el).parents( '.' + this.cfcfieldClassName)[0],
@@ -417,7 +436,7 @@ jQuery( function( $ ) {
         }
 
         /*
-        * Удаляем виджет
+        * remove widget
         * */
         removeWidget( field ) {
             const
@@ -439,21 +458,21 @@ jQuery( function( $ ) {
         }
 
         /*
-        * Получаем настройки виджета
+        * Get setting of widget
         * */
         getWidgetSettings(widgetId) {
             return this.widgetsSettings[widgetId];
         }
 
         /*
-        * Получаем чистый темплейт виджета
+        * Get clear(without admin controls) widget template
         * */
         getWidgetTemplate(widgetName) {
             return CFCWidgetsData[widgetName].template;
         }
 
         /*
-        * Делаем активное окно настроек
+        * Make active window of widget list
         * */
         showWidgets() {
             $(this.tabHeadSetiingSelector).removeClass('active')
@@ -466,7 +485,7 @@ jQuery( function( $ ) {
         }
 
         /*
-        * Делаем активное окно настроек
+        * Make active window setting
         * */
         showSettings() {
             if ( typeof tinymce !== 'undefined') {
@@ -486,16 +505,17 @@ jQuery( function( $ ) {
         }
 
         /*
-        * Сохраняем настройки
+        * save settings
         * */
         saveSettings() {
             $('#cfc-widgets-settings').val(JSON.stringify(this.widgetsSettings))
         }
 
         /*
-        * Сохраняем чистый код
+        * save code
         * */
         saveCode() {
+            //timeout because .gu-transit className not removed
             setTimeout(() => {
                 let
                     contents = this.elContainer.cloneNode(true),
@@ -512,11 +532,11 @@ jQuery( function( $ ) {
                 })
 
                 $('#wpcf7-form').val(contents.innerHTML.replaceAll(/\s\s/g, ' '))
-            }, 0)
+            }, 10)
         }
 
         /*
-        * Делаем уникальный айди для виджета
+        * Make unique widget id
         * */
         makeid(length) {
             var result           = '';
@@ -526,7 +546,7 @@ jQuery( function( $ ) {
                 result += characters.charAt(Math.floor(Math.random() * charactersLength));
             }
 
-            //если есть уже такой айди то пробуем создать еще раз
+            //if id is exist try create again
             if ( this.widgetsSettings[result] ) {
                 this.makeid(length)
             }
@@ -535,7 +555,7 @@ jQuery( function( $ ) {
         }
 
         /*
-        * Проверяем пустой ли контейнер
+        * If container empty
         * */
         maybeContainerEmpty() {
             // const containers =
@@ -550,18 +570,19 @@ jQuery( function( $ ) {
            })
         }
 
+        /*
+        * if need update custom update widget setting
+        * */
         maybeUpdateCustom() {
             const _this = this
 
             //range
             const field = $('.cfc-control-field input[type=number]');
             field.each(function (i, el) {
-
                 $(el)
                     .siblings('input[type=range]')
                     .val($(el).val())
             })
-
 
             //WYSIWYG
             if ( 'WYSIWYG' === this.widgetContext.widgetName ) {
@@ -586,6 +607,9 @@ jQuery( function( $ ) {
 
         }
 
+        /*
+        * Update widget with new data
+        * */
         changeState(settingId, data) {
             this.updateSetting(settingId, data)
             this.renderWidget()
@@ -593,15 +617,23 @@ jQuery( function( $ ) {
         }
     }
 
-    let cfc = new CFC()
+    /*
+    * Init class
+    * */
+    let cffe = new CFFE()
 
+    /*
+    * insert content from tag generator to our field
+    * */
     wpcf7.taggen.insert = function ( content ) {
         $('[data-setting-id=tag_content]')
             .val(content)
             .trigger('change')
     }
 
-    //range
+    /*
+    * Range additional
+    * */
     let is_click_range = false;
 
     $(document).on('mousedown', '.cfc-control-field input[type=range]', function () {
@@ -635,7 +667,9 @@ jQuery( function( $ ) {
     })
 
 
-    //resize cfc-panel
+    /*
+    * custom resize setting window
+    * */
     let
         is_clicked_mover = false,
         init_pos         = 0,
@@ -668,6 +702,9 @@ jQuery( function( $ ) {
         // $(this).siblings('.cfc-control__content').find('input[type=checkbox]')
     })
 
+    /*
+    * Function like esc_html() php
+    * */
     function escapeHtml(text) {
         var map = {
             '&': '&amp;',
@@ -680,6 +717,9 @@ jQuery( function( $ ) {
         return text.replace(/[&<>"']/g, function(m) { return map[m]; });
     }
 
+    /*
+    * Function for decode html special charts
+    * */
     function decodeHtml(text) {
         var map = {
             '&amp;': '&',
@@ -692,7 +732,9 @@ jQuery( function( $ ) {
         return text.replace(/&amp;|&lt;|&gt;|&quot;|&#039;/g, function(m) { return map[m]; });
     }
 
-    //main tabs
+    /*
+    * Editor tabs
+    * */
     $('.cfc-wrapper-tabs__title').on('click', function (e) {
         const index = $(this).index()
 

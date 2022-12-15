@@ -15,7 +15,7 @@
   display: flex;
   align-items: start;
 
-  //direction - Направление
+  //direction
   &.column {
     flex-direction: column;
 
@@ -42,7 +42,7 @@
     }
   }
 
-  //justify-content - Распределение
+  //justify-content
   &.j {
     &-start {
       justify-content: start;
@@ -64,7 +64,7 @@
     }
   }
 
-  //align-items - Выравнивание
+  //align-items
   &.a {
     &-start {
       align-items: start;
@@ -80,7 +80,7 @@
     }
   }
 
-  //text_align - Выравнивание текста
+  //text_align
   &.t {
     &-left {
       text-align: left;

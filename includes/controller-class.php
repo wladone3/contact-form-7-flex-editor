@@ -1,32 +1,59 @@
 <?php
-final class CFC_Controller {
 
+/**
+ * Controllers
+ *
+ * @since 0.2
+ * @class CFFE_Controller
+ * */
+final class CFFE_Controller {
+
+    /**
+     * List of all controllers
+     *
+     * @since 0.2
+     * */
     public $controllers = [];
 
-
+    /**
+     * main construct
+     * */
     public function __construct() {
-        $this->registerControllers();
+        $this->register_controllers();
     }
 
-    public function registerControllers() {
+    /**
+     * Register all defaults controllers
+     *
+     * type => callback
+     * @sicne 0.2
+     * */
+    public function register_controllers() {
         $this->controllers = [
             'textarea'      => [$this, 'textarea'],
             'select'        => [$this, 'select'],
             'tag-generator' => [$this, 'tag_generator'],
             'radio'         => [$this, 'radio'],
             'range'         => [$this, 'range'],
-            'text'         => [$this, 'text'],
-            'WYSIWYG'         => [$this, 'wysiwyg'],
-            'textarea_code'         => [$this, 'textarea_code'],
-            'checkbox'         => [$this, 'checkbox'],
+            'text'          => [$this, 'text'],
+            'WYSIWYG'       => [$this, 'wysiwyg'],
+            'textarea_code' => [$this, 'textarea_code'],
+            'checkbox'      => [$this, 'checkbox'],
         ];
 
+        /**
+         * Use this filter for add your controller
+         */
+        $this->controllers = apply_filters('cffe_register_controllers', $this->controllers);
     }
 
-    public function registerController($controller_type, $callback) {
-        $this->controllers[$controller_type] = $callback;
-    }
-
+    /**
+     * Render all controllers
+     *
+     * @sicne 0.2
+     * @param $settings array list settings for render
+     * @return string html controllers
+     * */
     public function get_controllers($settings) {
         $controllers = '';
 
@@ -40,6 +67,13 @@ final class CFC_Controller {
         return $controllers;
     }
 
+    /**
+     * Render controller
+     *
+     * @sicne 0.2
+     * @param $type string type of controller
+     * @param $args array controller setting
+     */
     public function render_controller($type, $args) {
         $classes = $args['setting_id'] . ' ' . $type;
 
@@ -63,6 +97,12 @@ final class CFC_Controller {
         return ob_get_clean();
     }
 
+    /**
+     * Controller text
+     *
+     * @sicne 0.2
+     * @param $args array controller setting
+     * */
     public function text($args) { ?>
         <input
                 type="text"
@@ -73,6 +113,12 @@ final class CFC_Controller {
         <?php
     }
 
+    /**
+     * Controller textarea
+     *
+     * @sicne 0.2
+     * @param $args array controller setting
+     * */
     public function textarea($args) { ?>
         <textarea
             class="cfc-control cfc-control-keyup textarea-control"
@@ -84,6 +130,12 @@ final class CFC_Controller {
     <?php
     }
 
+    /**
+     * Controller select
+     *
+     * @sicne 0.2
+     * @param $args array controller setting
+     * */
     public function select($args) { ?>
         <select
                 name="<?php echo $args['setting_id'] ?>"
@@ -99,6 +151,12 @@ final class CFC_Controller {
         <?php
     }
 
+    /**
+     * Controller tag generator
+     *
+     * @sicne 0.2
+     * @param $args array controller setting
+     * */
     public function tag_generator($args) { ?>
         <fieldset>
             <?php
@@ -109,6 +167,12 @@ final class CFC_Controller {
         <?php
     }
 
+    /**
+     * Controller radio input
+     *
+     * @sicne 0.2
+     * @param $args array controller setting
+     * */
     public function radio($args) { ?>
         <?php foreach ($args['options'] as $val => $label): ?>
             <label>
@@ -125,6 +189,12 @@ final class CFC_Controller {
         <?php
     }
 
+    /**
+     * Controller range input
+     *
+     * @sicne 0.2
+     * @param $args array controller setting
+     * */
     public function range($args) {
         $range = ['min', 'max', 'step'];
         $range_attrs = '';
@@ -148,6 +218,12 @@ final class CFC_Controller {
         >
     <?php }
 
+    /**
+     * Controller wysiwyg - tynymce
+     *
+     * @sicne 0.2
+     * @param $args array controller setting
+     * */
     public function wysiwyg($args) {
         wp_editor('', 'cfcwysiwyg', [
             'textarea_name' => 'cfcwysiwyg',
@@ -157,6 +233,12 @@ final class CFC_Controller {
         ]);
     }
 
+    /**
+     * Controller textarea
+     *
+     * @sicne 0.2
+     * @param $args array controller setting
+     * */
     public function textarea_code($args) { ?>
         <textarea
                 class="cfc-control cfc-control-keyup textarea-control text-area-code"
@@ -167,6 +249,12 @@ final class CFC_Controller {
         </textarea>
     <?php }
 
+    /**
+     * Controller checkbox
+     *
+     * @sicne 0.2
+     * @param $args array controller setting
+     * */
     public function checkbox($args) {
         ?>
         <input
