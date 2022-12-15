@@ -85,6 +85,20 @@ final class CFC_Flex_Container extends CFC_Abstract_Widget {
             ]
         );
 
+        $this->set_setting(
+            'text_align',
+            [
+                'type' => 'radio',
+                'title' => 'Выравнивание текста',
+                'options' => [
+                    't-left'     => 'Лево',
+                    't-center'    => 'Центр',
+                    't-right'       => 'Право',
+                ],
+                'control_class' => 'column',
+            ]
+        );
+
 
         $this->set_setting(
             'gap',
@@ -126,6 +140,7 @@ final class CFC_Flex_Container extends CFC_Abstract_Widget {
         {{justify_content}}
         {{align_items}}
         {{mob_adaptive}}
+        {{text_align}}
         {{mob_reverse}}" style="gap:{{gap}}px; width:{{width}}{{width_unit}}"></div>
         <?php
     }

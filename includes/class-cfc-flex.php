@@ -21,12 +21,16 @@ final class CFC_PlDugin {
     }
 
     public function __construct() {
-        $this->init();
+        if ( is_admin() ) {
+            $this->init();
 
-        $this->register_categories();
-        $this->set_widgets();
-        $this->set_widgets_category();
-        $this->actions();
+            $this->register_categories();
+            $this->set_widgets();
+            $this->set_widgets_category();
+            $this->actions();
+        } else {
+            $this->front_actions();
+        }
     }
 
     public function init() {
@@ -37,9 +41,13 @@ final class CFC_PlDugin {
 
     public function actions() {
         add_action( 'admin_enqueue_scripts', [$this, 'admin_enqueue_scripts_action'] );
-        add_action( 'wp_enqueue_scripts', [$this, 'enqueue_scripts_action'] );
         add_filter('wpcf7_editor_panels', [$this,'fcf_wpcf7_editor_panels'] );
         add_action('wpcf7_after_save', [$this, 'save_widgets_data']);
+    }
+
+    public function front_actions() {
+        add_action( 'wp_enqueue_scripts', [$this, 'enqueue_scripts_action'] );
+        add_filter('wpcf7_autop_or_not', '__return_false');
     }
 
     public function set_widgets() {
@@ -130,7 +138,7 @@ final class CFC_PlDugin {
     }
 
     public function fcf_get_edit_template($post) {
-        usp_core_get_template('templates/admin-edit.php', [
+        cfcflex_core_get_template('templates/admin-edit.php', [
             'post' => $post,
         ]);
     }

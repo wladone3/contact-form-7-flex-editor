@@ -20,7 +20,7 @@ final class CFC_Space extends CFC_Abstract_Widget {
                 'type' => 'range',
                 'title' => 'Растояние',
                 'min' => 1,
-                'max' => 60,
+                'max' => 30,
                 'default' => 10
             ]
         );

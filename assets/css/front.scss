@@ -79,5 +79,25 @@
       align-items: stretch;
     }
   }
+
+  //text_align - Выравнивание текста
+  &.t {
+    &-left {
+      text-align: left;
+    }
+
+    &-center {
+      text-align: center;
+    }
+
+    &-right {
+      text-align: right;
+    }
+  }
 }
 
+.cfc-field-content {
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+}
