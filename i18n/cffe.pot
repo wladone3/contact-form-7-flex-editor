@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Contact Form 7 Flex editor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-16 16:10+0000\n"
+"POT-Creation-Date: 2022-12-16 17:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -201,6 +201,15 @@ msgid ""
 "The child class does not use the %s method. Widget output cannot be empty"
 msgstr ""
 
+#: templates/admin-edit.php:83 templates/admin-edit.php:101
+msgid ""
+"This is a service tab. \n"
+"                    It is designed to adjust and eliminate excess parts of "
+"the code directly. \n"
+"                    Changes made here will be able to apply after "
+"maintaining the form."
+msgstr ""
+
 #: widgets/title.php:25 widgets/title.php:41
 msgid "Title"
 msgstr ""
@@ -219,6 +228,10 @@ msgstr ""
 
 #: widgets/container.php:47
 msgid "Vertically in reverse order"
+msgstr ""
+
+#: templates/admin-edit.php:82 templates/admin-edit.php:100
+msgid "Warning!"
 msgstr ""
 
 #: templates/admin-edit.php:39

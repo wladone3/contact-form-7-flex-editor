@@ -73,10 +73,37 @@ $description = sprintf( esc_html( $description ), $desc_link );
         </div>
 
         <div class="cfc-wrapper-tabs__content">
+            <div class="cfc-notice f g15">
+                <div class="cfc-notice-icon">
+                    <span class="icon-in-circle" aria-hidden="true">!</span>
+                </div>
+
+                <div class="cfc-notice-content f fdc">
+                    <h4><?php esc_html_e('Warning!', 'cffe'); ?></h4>
+                    <p><?php _e('This is a service tab. 
+                    It is designed to adjust and eliminate excess parts of the code directly. 
+                    Changes made here will be able to apply after maintaining the form.', 'cffe') ?></p>
+                </div>
+            </div>
+
             <textarea id="wpcf7-form" name="wpcf7-form" cols="100" rows="24" class="large-text code" data-config-field="form.body"><?php echo esc_textarea($post->prop( 'form' )); ?></textarea>
         </div>
 
         <div class="cfc-wrapper-tabs__content">
+
+            <div class="cfc-notice f g15">
+                <div class="cfc-notice-icon">
+                    <span class="icon-in-circle" aria-hidden="true">!</span>
+                </div>
+
+                <div class="cfc-notice-content f fdc">
+                    <h4><?php esc_html_e('Warning!', 'cffe'); ?></h4>
+                    <p><?php _e('This is a service tab. 
+                    It is designed to adjust and eliminate excess parts of the code directly. 
+                    Changes made here will be able to apply after maintaining the form.', 'cffe') ?></p>
+                </div>
+            </div>
+
             <textarea name="cfc-widgets-settings" id="cfc-widgets-settings" cols="30" rows="10"><?php echo get_post_meta($post->id(), 'cfc_widgets_data', true) ?></textarea>
         </div>
     </div>
