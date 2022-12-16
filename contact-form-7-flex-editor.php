@@ -31,5 +31,5 @@ require FCF_DIR . 'includes/abstract-widget-class.php';
 require FCF_DIR . 'includes/class-cfc-flex.php';
 require FCF_DIR . 'includes/inc.php';
 
-CFFE();
+add_action('init', 'CFFE');
 

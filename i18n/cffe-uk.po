@@ -1,0 +1,237 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Contact Form 7 Flex editor\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-16 16:10+0000\n"
+"PO-Revision-Date: 2022-12-16 16:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
+"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.7; wp-6.1.1\n"
+"X-Domain: cffe"
+
+#. Description of the plugin
+msgid ""
+"A plugin designed to create a contact form layout of any complexity by "
+"dragging and dropping elements."
+msgstr ""
+"Плагін розроблений для створення макету контактних фом будь-якої складності "
+"за допомогою перетаскування елементів.  "
+
+#: widgets/container.php:85
+msgid "Align items"
+msgstr "Вирівнювання "
+
+#: widgets/container.php:77 widgets/container.php:91
+msgid "Between elements"
+msgstr "Поміж елементами"
+
+#: widgets/container.php:75 widgets/container.php:89 widgets/container.php:101
+msgid "Center"
+msgstr "Центр"
+
+#: widgets/form-tags.php:41
+msgid "Chose tag"
+msgstr "Оберіть тег"
+
+#: templates/admin-edit.php:23 widgets/code.php:25 widgets/code.php:32
+msgid "Code"
+msgstr "Код"
+
+#. Name of the plugin
+msgid "Contact Form 7 Flex editor"
+msgstr ""
+
+#: widgets/container.php:25
+msgid "Container"
+msgstr "Контейнер "
+
+#: widgets/container.php:53
+msgid "Container width"
+msgstr "Ширина контейнеру"
+
+#: widgets/desc.php:25 widgets/desc.php:41
+msgid "Description"
+msgstr "Опис"
+
+#: widgets/container.php:41
+msgid "Direction"
+msgstr "Напрямок"
+
+#: widgets/space.php:41
+msgid "Distance"
+msgstr "Дистанція"
+
+#: widgets/container.php:109
+msgid "Distance between widgets"
+msgstr "Дистанція поміж елементами "
+
+#: widgets/container.php:76 widgets/container.php:90
+msgid "End"
+msgstr "Кінець"
+
+#: widgets/desc.php:43
+msgid "Enter description"
+msgstr "Введіть опис"
+
+#: widgets/WYSIWYG.php:43
+msgid "Enter text"
+msgstr "Введіть текс"
+
+#: widgets/title.php:43
+msgid "Enter title"
+msgstr "Введіть заголовок"
+
+#: widgets/label.php:41 widgets/label.php:43
+msgid "Field title"
+msgstr "Заголовок "
+
+#: templates/admin-edit.php:22
+msgid "Flex editor"
+msgstr "Flex редактор"
+
+#. URI of the plugin
+msgid "flex-editor.groswebdev.com/"
+msgstr ""
+
+#: widgets/label.php:47
+msgid "For"
+msgstr "Для"
+
+#: includes/class-cfc-flex.php:153
+msgid "Form"
+msgstr "Форма"
+
+#: widgets/form-tags.php:25
+msgid "Form tag generator"
+msgstr "Тег генератор форми"
+
+#. Author URI of the plugin
+msgid "groswebdev.com"
+msgstr ""
+
+#: widgets/container.php:44
+msgid "Horizontally"
+msgstr "Горизонтально"
+
+#: widgets/container.php:46
+msgid "Horizontally in reverse order"
+msgstr "Горизонтально в зворотньому напрямку "
+
+#: widgets/code.php:34
+msgid "Just past your custom code"
+msgstr "Просто вставтьте свій код "
+
+#: widgets/container.php:71
+msgid "Justify content"
+msgstr "Розподіл елементів"
+
+#: widgets/label.php:25
+msgid "Label for input"
+msgstr "Мітка для поля вводу "
+
+#: includes/class-cfc-flex.php:152
+msgid "Layout"
+msgstr "Макет"
+
+#: widgets/container.php:100
+msgid "Left"
+msgstr "Зліва"
+
+#: widgets/container.php:117
+msgid "Move to lines at the mod extension (768px)"
+msgstr "Перенести колонки в ряд на мобільному розширені (768px) "
+
+#: includes/class-cfc-flex.php:155
+msgid "Other"
+msgstr "Інше"
+
+#: widgets/container.php:124
+msgid "Reverse the lines on the mobile version"
+msgstr "Реверс строк на мобільній версії"
+
+#: widgets/container.php:102
+msgid "Right"
+msgstr "Зправа "
+
+#: widgets/container.php:79
+msgid "Same distance"
+msgstr "Рівна дистанція"
+
+#: templates/admin-edit.php:46
+msgid "Settings"
+msgstr "Налаштування"
+
+#: widgets/space.php:25
+msgid "Space"
+msgstr "Простір"
+
+#: widgets/container.php:74 widgets/container.php:88
+msgid "Start"
+msgstr "Старт"
+
+#: widgets/desc.php:47 widgets/title.php:47
+msgid "Tag"
+msgstr "Тег"
+
+#: widgets/form-tags.php:43
+msgid "Tag content"
+msgstr "Контен тегу"
+
+#: includes/class-cfc-flex.php:154 widgets/WYSIWYG.php:41
+msgid "Text"
+msgstr "Текст"
+
+#: widgets/container.php:97
+msgid "Text align"
+msgstr "Вирівнювання тексту"
+
+#: includes/class-cfc-flex.php:181
+#, php-format
+msgid "The %s widget uses a category %s that is not registered"
+msgstr "Віджет %s використовує нерареєстровану категорію %s"
+
+#: includes/abstract-widget-class.php:54
+#, php-format
+msgid ""
+"The child class does not use the %s method. Widget output cannot be empty"
+msgstr ""
+"Дочірний класс не використовує %s метод. Вивод віджету не може бути порожнім "
+
+#: widgets/title.php:25 widgets/title.php:41
+msgid "Title"
+msgstr "Заголовок"
+
+#: widgets/container.php:78
+msgid "Uniform distance"
+msgstr "Однакова дистанція"
+
+#: widgets/container.php:61
+msgid "Unit for changing the width of the container"
+msgstr "Одиниця виміру для ширини контейнеру"
+
+#: widgets/container.php:45
+msgid "Vertically"
+msgstr "Вертикально"
+
+#: widgets/container.php:47
+msgid "Vertically in reverse order"
+msgstr "Вертикально в зворотньому порядку"
+
+#: templates/admin-edit.php:39
+msgid "Widgets"
+msgstr "Віджети"
+
+#: templates/admin-edit.php:24
+msgid "Widgets data"
+msgstr "Данні віджетів"
+
+#. Author of the plugin
+msgid "wladone3"
+msgstr ""

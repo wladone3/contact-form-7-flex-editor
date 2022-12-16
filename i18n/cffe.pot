@@ -1,0 +1,234 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Contact Form 7 Flex editor\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-16 16:10+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.7; wp-6.1.1\n"
+"X-Domain: cffe"
+
+#. Description of the plugin
+msgid ""
+"A plugin designed to create a contact form layout of any complexity by "
+"dragging and dropping elements."
+msgstr ""
+
+#: widgets/container.php:85
+msgid "Align items"
+msgstr ""
+
+#: widgets/container.php:77 widgets/container.php:91
+msgid "Between elements"
+msgstr ""
+
+#: widgets/container.php:75 widgets/container.php:89 widgets/container.php:101
+msgid "Center"
+msgstr ""
+
+#: widgets/form-tags.php:41
+msgid "Chose tag"
+msgstr ""
+
+#: templates/admin-edit.php:23 widgets/code.php:25 widgets/code.php:32
+msgid "Code"
+msgstr ""
+
+#. Name of the plugin
+msgid "Contact Form 7 Flex editor"
+msgstr ""
+
+#: widgets/container.php:25
+msgid "Container"
+msgstr ""
+
+#: widgets/container.php:53
+msgid "Container width"
+msgstr ""
+
+#: widgets/desc.php:25 widgets/desc.php:41
+msgid "Description"
+msgstr ""
+
+#: widgets/container.php:41
+msgid "Direction"
+msgstr ""
+
+#: widgets/space.php:41
+msgid "Distance"
+msgstr ""
+
+#: widgets/container.php:109
+msgid "Distance between widgets"
+msgstr ""
+
+#: widgets/container.php:76 widgets/container.php:90
+msgid "End"
+msgstr ""
+
+#: widgets/desc.php:43
+msgid "Enter description"
+msgstr ""
+
+#: widgets/WYSIWYG.php:43
+msgid "Enter text"
+msgstr ""
+
+#: widgets/title.php:43
+msgid "Enter title"
+msgstr ""
+
+#: widgets/label.php:41 widgets/label.php:43
+msgid "Field title"
+msgstr ""
+
+#: templates/admin-edit.php:22
+msgid "Flex editor"
+msgstr ""
+
+#. URI of the plugin
+msgid "flex-editor.groswebdev.com/"
+msgstr ""
+
+#: widgets/label.php:47
+msgid "For"
+msgstr ""
+
+#: includes/class-cfc-flex.php:153
+msgid "Form"
+msgstr ""
+
+#: widgets/form-tags.php:25
+msgid "Form tag generator"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "groswebdev.com"
+msgstr ""
+
+#: widgets/container.php:44
+msgid "Horizontally"
+msgstr ""
+
+#: widgets/container.php:46
+msgid "Horizontally in reverse order"
+msgstr ""
+
+#: widgets/code.php:34
+msgid "Just past your custom code"
+msgstr ""
+
+#: widgets/container.php:71
+msgid "Justify content"
+msgstr ""
+
+#: widgets/label.php:25
+msgid "Label for input"
+msgstr ""
+
+#: includes/class-cfc-flex.php:152
+msgid "Layout"
+msgstr ""
+
+#: widgets/container.php:100
+msgid "Left"
+msgstr ""
+
+#: widgets/container.php:117
+msgid "Move to lines at the mod extension (768px)"
+msgstr ""
+
+#: includes/class-cfc-flex.php:155
+msgid "Other"
+msgstr ""
+
+#: widgets/container.php:124
+msgid "Reverse the lines on the mobile version"
+msgstr ""
+
+#: widgets/container.php:102
+msgid "Right"
+msgstr ""
+
+#: widgets/container.php:79
+msgid "Same distance"
+msgstr ""
+
+#: templates/admin-edit.php:46
+msgid "Settings"
+msgstr ""
+
+#: widgets/space.php:25
+msgid "Space"
+msgstr ""
+
+#: widgets/container.php:74 widgets/container.php:88
+msgid "Start"
+msgstr ""
+
+#: widgets/desc.php:47 widgets/title.php:47
+msgid "Tag"
+msgstr ""
+
+#: widgets/form-tags.php:43
+msgid "Tag content"
+msgstr ""
+
+#: includes/class-cfc-flex.php:154 widgets/WYSIWYG.php:41
+msgid "Text"
+msgstr ""
+
+#: widgets/container.php:97
+msgid "Text align"
+msgstr ""
+
+#: includes/class-cfc-flex.php:181
+#, php-format
+msgid "The %s widget uses a category %s that is not registered"
+msgstr ""
+
+#: includes/abstract-widget-class.php:54
+#, php-format
+msgid ""
+"The child class does not use the %s method. Widget output cannot be empty"
+msgstr ""
+
+#: widgets/title.php:25 widgets/title.php:41
+msgid "Title"
+msgstr ""
+
+#: widgets/container.php:78
+msgid "Uniform distance"
+msgstr ""
+
+#: widgets/container.php:61
+msgid "Unit for changing the width of the container"
+msgstr ""
+
+#: widgets/container.php:45
+msgid "Vertically"
+msgstr ""
+
+#: widgets/container.php:47
+msgid "Vertically in reverse order"
+msgstr ""
+
+#: templates/admin-edit.php:39
+msgid "Widgets"
+msgstr ""
+
+#: templates/admin-edit.php:24
+msgid "Widgets data"
+msgstr ""
+
+#. Author of the plugin
+msgid "wladone3"
+msgstr ""
