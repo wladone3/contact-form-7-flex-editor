@@ -121,9 +121,6 @@ final class CFFE_Plugin {
         require FCF_DIR . 'widgets/label.php';
         require FCF_DIR . 'widgets/title.php';
         require FCF_DIR . 'widgets/desc.php';
-
-        // todo когда подключаем редактор не отображаются иконки
-//        require FCF_DIR . 'widgets/WYSIWYG.php';
         require FCF_DIR . 'widgets/code.php';
 
         $this->widgets[] = new CFC_Flex_Container;
@@ -132,8 +129,11 @@ final class CFFE_Plugin {
         $this->widgets[] = new CFC_Label;
         $this->widgets[] = new CFC_Title;
         $this->widgets[] = new CFC_Description;
-//        $this->widgets[] = new CFC_WYSIWYG;
         $this->widgets[] = new CFC_Code;
+
+        // todo когда подключаем редактор не отображаются иконки
+        //require FCF_DIR . 'widgets/WYSIWYG.php';
+        //$this->widgets[] = new CFC_WYSIWYG;
 
         /**
          * Use this filter for add your widget
@@ -289,7 +289,7 @@ final class CFFE_Plugin {
             $widget_data = [
                 'name'              => $widget->get_name(),
                 'title'             => $widget->get_title(),
-                'controls'          => $this->controller->get_controllers($widget->get_settings()),
+                'controls'          => $this->controller->get_controllers( $widget->get_settings() ),
                 'template'          => $widget->get_template(),
                 'controls_default'  => $widget->get_defaults(),
             ];

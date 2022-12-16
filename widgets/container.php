@@ -38,11 +38,8 @@ final class CFC_Flex_Container extends CFC_Abstract_Widget {
      * Widget settings
      * */
     public function settings() {
-        $this->set_setting(
-            'direction',
+        $this->set_setting('radio', 'direction', __('Direction', 'cffe'),
             [
-                'type' => 'radio',
-                'title' => __('Direction', 'cffe'),
                 'options' => [
                     'row'               => __('Horizontally', 'cffe'),
                     'column'            => __('Vertically', 'cffe'),
@@ -53,22 +50,16 @@ final class CFC_Flex_Container extends CFC_Abstract_Widget {
             ]
         );
 
-        $this->set_setting(
-            'width',
+        $this->set_setting('range','width', __('Container width', 'cffe'),
             [
-                'type' => 'range',
-                'title' => __('Container width', 'cffe'),
                 'min' => 0,
                 'max' => 100,
                 'default' => 100,
             ]
         );
 
-        $this->set_setting(
-            'width_unit',
+        $this->set_setting('radio', 'width_unit', __('Unit for changing the width of the container', 'cffe'),
             [
-                'type' => 'radio',
-                'title' => __('Unit for changing the width of the container', 'cffe'),
                 'options' => [
                     '%'     => '%',
                     'px'    => 'px',
@@ -77,11 +68,8 @@ final class CFC_Flex_Container extends CFC_Abstract_Widget {
             ]
         );
 
-        $this->set_setting(
-            'justify_content',
+        $this->set_setting('radio', 'justify_content',  __('Justify content', 'cffe'),
             [
-                'type' => 'radio',
-                'title' => __('Justify content', 'cffe'),
                 'options' => [
                     'j-start'     => __('Start', 'cffe'),
                     'j-center'    => __('Center', 'cffe'),
@@ -94,11 +82,8 @@ final class CFC_Flex_Container extends CFC_Abstract_Widget {
             ]
         );
 
-        $this->set_setting(
-            'align_items',
+        $this->set_setting('radio', 'align_items', __('Align items', 'cffe'),
             [
-                'type'  => 'radio',
-                'title' => __('Align items', 'cffe'),
                 'options' => [
                     'a-start'     => __('Start', 'cffe'),
                     'a-center'    => __('Center', 'cffe'),
@@ -109,11 +94,8 @@ final class CFC_Flex_Container extends CFC_Abstract_Widget {
             ]
         );
 
-        $this->set_setting(
-            'text_align',
+        $this->set_setting('radio', 'text_align', __('Text align', 'cffe'),
             [
-                'type' => 'radio',
-                'title' => __('Text align', 'cffe'),
                 'options' => [
                     't-left'     => __('Left', 'cffe'),
                     't-center'   => __('Center', 'cffe'),
@@ -124,32 +106,23 @@ final class CFC_Flex_Container extends CFC_Abstract_Widget {
         );
 
 
-        $this->set_setting(
-            'gap',
+        $this->set_setting('range', 'gap', __('Distance between widgets', 'cffe'),
             [
-                'type'      => 'range',
-                'title'     => __('Distance between widgets', 'cffe'),
                 'min'       => 0,
                 'max'       => 50,
                 'default'   => 15
             ]
         );
 
-        $this->set_setting(
-            'mob_adaptive',
+        $this->set_setting('checkbox', 'mob_adaptive', __('Move to lines at the mod extension (768px)', 'cffe'),
             [
-                'type'      => 'checkbox',
-                'title'     => __('Move to lines at the mod extension (768px)', 'cffe'),
                 'return'    => 'adaptive',
                 'default'   => 'adaptive',
             ]
         );
 
-        $this->set_setting(
-            'mob_reverse',
+        $this->set_setting('checkbox', 'mob_reverse', __('Reverse the lines on the mobile version', 'cffe'),
             [
-                'type'      => 'checkbox',
-                'title'     => __('Reverse the lines on the mobile version', 'cffe'),
                 'return'    => 'mob-reverse',
                 'default'   => '',
             ]

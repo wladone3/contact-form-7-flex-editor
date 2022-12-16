@@ -38,12 +38,9 @@ final class CFC_WYSIWYG extends CFC_Abstract_Widget {
      * Widget settings
      * */
     public function settings() {
-        $this->set_setting(
-            'text',
+        $this->set_setting('WYSIWYG', 'text', __('Text', 'cffe'),
             [
-                'type' => 'WYSIWYG',
-                'title' => 'Текст',
-                'default' => 'Введите текст'
+                'default' => __('Enter text', 'cffe'),
             ]
         );
     }

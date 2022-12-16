@@ -28,7 +28,10 @@ abstract class CFC_Abstract_Widget {
      * @return string
      * */
     public function get_category() {
-        return 'default';
+        /*
+         * Use this filter for change default category id
+         * */
+        return apply_filters('cffe_widget_default_category', 'default');
     }
 
     /**
@@ -64,13 +67,20 @@ abstract class CFC_Abstract_Widget {
     /**
      * Set widget setting
      *
-     * @since 0.2
-     * @param $id string - widget key
-     * @param $params array - settings
-     * */
-    public function set_setting( $id, $params ) {
-        $this->settings[$id] = $params;
-        $this->defaults[$id] = key_exists('default', $params) ? $params['default'] : '';
+     * @param $type    string type of controller
+     * @param $id      string setting key
+     * @param $label   string Setting label
+     * @param $options array  options
+     * @since 0.2.1
+     */
+    public function set_setting( $type, $id, $label = '', $options = []) {
+        $this->settings[$id] = array_merge([
+            'type' => $type,
+            'id'    => $id,
+            'label' => $label,
+        ], $options);
+
+        $this->defaults[$id] = key_exists('default', $options) ? $options['default'] : '';
     }
 
     /**
@@ -80,7 +90,10 @@ abstract class CFC_Abstract_Widget {
      * @return array
      * */
     public function get_settings() {
-        return $this->settings;
+        /*
+         * Use this filter for change widget setting
+         * */
+        return apply_filters('cffe_get_widget_settings', $this->settings, $this );
     }
 
     /**
@@ -90,7 +103,10 @@ abstract class CFC_Abstract_Widget {
      * @return array
      * */
     public function get_defaults() {
-        return $this->defaults;
+        /*
+        * Use this filter for change widget defaults options
+        * */
+        return apply_filters('cffe_get_widget_defaults', $this->defaults, $this );
     }
 
     /**
@@ -101,7 +117,13 @@ abstract class CFC_Abstract_Widget {
      * */
     public function get_template() {
         ob_start();
+
+        do_action('cffe_before_widget_template', $this);
+
         $this->render();
+
+        do_action('cffe_after_widget_template', $this);
+
         return ob_get_clean();
     }
 }

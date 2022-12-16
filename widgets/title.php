@@ -38,28 +38,25 @@ final class CFC_Title extends CFC_Abstract_Widget {
      * Widget settings
      * */
     public function settings() {
-        $this->set_setting(
-            'text',
+        $this->set_setting('textarea', 'text', __('Title', 'cffe'),
             [
-                'type'      => 'textarea',
-                'title'     => __('Title', 'cffe'),
                 'default'   => __('Enter title', 'cffe')
             ]
         );
 
-        $this->set_setting('tag', [
-            'title' => __('Tag', 'cffe'),
-            'type'  => 'select',
-            'default' => 'h2',
-            'options' => [
-                'h1' => 'h1',
-                'h2' => 'h2',
-                'h3' => 'h3',
-                'h4' => 'h4',
-                'h5' => 'h5',
-                'h6' => 'h6',
+        $this->set_setting('select', 'tag', __('Tag', 'cffe'),
+            [
+                'options' => [
+                    'h1' => 'h1',
+                    'h2' => 'h2',
+                    'h3' => 'h3',
+                    'h4' => 'h4',
+                    'h5' => 'h5',
+                    'h6' => 'h6',
+                ],
+                'default' => 'h2',
             ]
-        ]);
+        );
     }
 
     /**

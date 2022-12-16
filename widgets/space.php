@@ -38,11 +38,8 @@ final class CFC_Space extends CFC_Abstract_Widget {
      * Widget settings
      * */
     public function settings() {
-        $this->set_setting(
-            'space',
+        $this->set_setting('range', 'space', __('Distance', 'cffe'),
             [
-                'type' => 'range',
-                'title' => __('Distance', 'cffe'),
                 'min' => 1,
                 'max' => 30,
                 'default' => 10

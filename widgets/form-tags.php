@@ -38,19 +38,10 @@ final class CFC_Tag_Generator extends CFC_Abstract_Widget {
      * Widget settings
      * */
     public function settings() {
-        $this->set_setting(
-            'tag_generator',
-            [
-                'type' => 'tag-generator',
-                'title' => 'Выбирите тег',
-            ]
-        );
+        $this->set_setting('tag-generator', 'tag_generator', __('Chose tag', 'cffe') );
 
-        $this->set_setting(
-            'tag_content',
+        $this->set_setting('textarea', 'tag_content', __('Tag content', 'cffe'),
             [
-                'type' => 'textarea',
-                'title' => 'Контент тега',
                 'default' => 'Выбирите тег из списка'
             ]
         );

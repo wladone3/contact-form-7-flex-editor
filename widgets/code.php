@@ -29,11 +29,8 @@ final class CFC_Code extends CFC_Abstract_Widget {
      * Widget settings
      * */
     public function settings() {
-        $this->set_setting(
-            'code',
+        $this->set_setting('textarea_code', 'code', __('Code', 'cffe'),
             [
-                'type' => 'textarea_code',
-                'title' => __('Code', 'cffe'),
                 'default' => '<div class="main-code"><b>'. __('Just past your custom code', 'cffe') .'</b></div>'
             ]
         );

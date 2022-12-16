@@ -81,19 +81,30 @@ final class CFFE_Controller {
             $classes .= ' ' .  $args['control_class'];
         }
 
-        ob_start();  ?>
+        ob_start();
 
+        do_action('cffe_before_controller_render', $type, $args);
+        ?>
         <div class="cfc-control-field  <?php echo $classes ?>" >
-            <?php if ( $args['title'] ): ?>
-                <h3 class="cfc-control__name"><?php echo $args['title'] ?></h3>
+            <?php do_action('cffe_before_title_controller_render', $type, $args); ?>
+
+            <?php if ( $args['label'] ): ?>
+                <h3 class="cfc-control__name"><?php echo $args['label'] ?></h3>
             <?php endif; ?>
+
+            <?php do_action('cffe_after_title_controller_render', $type, $args); ?>
 
             <div class="cfc-control__content">
                 <?php call_user_func($this->controllers[$type], $args) ?>
             </div>
+
+            <?php do_action('cffe_after_content_controller_render', $type, $args); ?>
         </div>
 
         <?php
+
+        do_action('cffe_after_controller_render', $type, $args);
+
         return ob_get_clean();
     }
 

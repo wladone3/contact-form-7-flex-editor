@@ -38,22 +38,13 @@ final class CFC_Label extends CFC_Abstract_Widget {
      * Widget settings
      * */
     public function settings() {
-        $this->set_setting(
-            'name',
+        $this->set_setting('textarea', 'name', __('Field title', 'cffe'),
             [
-                'type'      => 'textarea',
-                'title'     => __('Field title', 'cffe'),
                 'default'   => __('Field title', 'cffe')
             ]
         );
 
-        $this->set_setting(
-            'for',
-            [
-                'type'  => 'text',
-                'title' => __('For', 'cffe'),
-            ]
-        );
+        $this->set_setting( 'text', 'for', __('For', 'cffe') );
     }
 
     /**

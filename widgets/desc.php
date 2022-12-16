@@ -38,27 +38,24 @@ final class CFC_Description extends CFC_Abstract_Widget {
      * Widget settings
      * */
     public function settings() {
-        $this->set_setting(
-            'text',
+        $this->set_setting('textarea', 'text', __('Description', 'cffe'),
             [
-                'type'      => 'textarea',
-                'title'     => __('Description', 'cffe'),
                 'default'   => __('Enter description', 'cffe'),
             ]
         );
 
-        $this->set_setting('tag', [
-            'title'     => __('Tag', 'cffe'),
-            'type'      => 'select',
-            'default'   => 'p',
-            'options'   => [
-                'p'     => 'p',
-                'span'  => 'span',
-                'div'   => 'div',
-                'b'     => 'b',
-                'i'     => 'i'
+        $this->set_setting( 'select', 'tag',__('Tag', 'cffe'),
+            [
+                'options'   => [
+                    'p'     => 'p',
+                    'span'  => 'span',
+                    'div'   => 'div',
+                    'b'     => 'b',
+                    'i'     => 'i'
+                ],
+                'default'   => 'p',
             ]
-        ]);
+        );
     }
 
     /**
