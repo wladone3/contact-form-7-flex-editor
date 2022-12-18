@@ -95,8 +95,11 @@ final class CFFE_Plugin {
      * */
     private function actions() {
         add_action( 'admin_enqueue_scripts', [$this, 'admin_enqueue_scripts_action'] );
-        add_filter('wpcf7_editor_panels', [$this,'fcf_wpcf7_editor_panels'] );
-        add_action('wpcf7_after_save', [$this, 'save_widgets_data']);
+        add_filter( 'wpcf7_editor_panels', [$this,'fcf_wpcf7_editor_panels'] );
+        add_action( 'wpcf7_save_contact_form', [$this, 'save_widgets_data'] );
+
+        add_filter('wpcf7_pre_construct_contact_form_properties', [$this, 'cffe_pre_construct_contact_form_properties']);
+        add_filter('wpcf7_default_template', [$this, 'cffe_default_template'], 10, 2);
     }
 
     /**
@@ -301,13 +304,48 @@ final class CFFE_Plugin {
     }
 
     /**
-     * Save widgets meta
+     * Add custom property data for save
      *
      * @sicne 0.2
+     * @hook wpcf7_save_contact_form
      * */
     public function save_widgets_data($form) {
         //data about widgets settings
-        update_post_meta( $form->id, 'cfc_widgets_data', esc_html( $_POST['cfc-widgets-settings'] ) );
+        $form->set_properties( ['cffe_widgets_data' => wp_unslash($_POST['cffe_widgets_data']) ] );
+    }
+
+    /**
+     * Make custom properties
+     *
+     * @since 0.2.1
+     * @param $builtin_properties array default properties
+     * @return array modified properties
+     * @filter wpcf7_pre_construct_contact_form_properties
+     * */
+    public function cffe_pre_construct_contact_form_properties($builtin_properties) {
+        $builtin_properties['cffe_widgets_data'] = '';
+        return $builtin_properties;
+    }
+
+    /**
+     * Add and change default form template
+     *
+     * @since 0.2.1
+     * @filter wpcf7_default_template
+     * @param $template string current template
+     * @param $prop string current property
+     * @return string template
+     * */
+    public function cffe_default_template( $template, $prop ) {
+        if ( $prop === 'cffe_widgets_data' ) {
+            $template = cffe_get_template('templates/default-widget-data', [], false);
+        }
+
+        if ( $prop === 'form' ) {
+            $template = cffe_get_template('templates/default-form-template', [], false);
+        }
+
+        return $template;
     }
 }
 

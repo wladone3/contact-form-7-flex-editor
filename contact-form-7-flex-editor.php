@@ -20,7 +20,7 @@
 */
 define ('FCF_DIR',         plugin_dir_path(__FILE__ ));    //for require php file
 define ('FCF_ASSETS',      plugin_dir_url(__FILE__));      //directory to assets files
-define ('FCF_VERSION',      '0.2');
+define ('FCF_VERSION',      '0.2.1');
 
 add_action( 'plugins_loaded', 'cffe_onload' );
 function cffe_onload() {

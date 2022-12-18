@@ -508,7 +508,7 @@ jQuery( function( $ ) {
         * save settings
         * */
         saveSettings() {
-            $('#cfc-widgets-settings').val(JSON.stringify(this.widgetsSettings))
+            $('#cfc-widgets-settings').val(JSON.stringify(this.widgetsSettings, null, '\t'))
         }
 
         /*

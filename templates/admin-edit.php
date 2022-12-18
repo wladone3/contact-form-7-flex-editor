@@ -104,7 +104,7 @@ $description = sprintf( esc_html( $description ), $desc_link );
                 </div>
             </div>
 
-            <textarea name="cfc-widgets-settings" id="cfc-widgets-settings" cols="30" rows="10"><?php echo get_post_meta($post->id(), 'cfc_widgets_data', true) ?></textarea>
+            <textarea name="cffe_widgets_data" id="cfc-widgets-settings" cols="30" rows="10"><?php echo esc_textarea($post->prop( 'cffe_widgets_data' ) ) ?></textarea>
         </div>
     </div>
 </div>
