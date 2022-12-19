@@ -1,14 +1,14 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Contact Form 7 Flex editor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-16 16:10+0000\n"
-"PO-Revision-Date: 2022-12-19 13:16+0000\n"
-"Last-Translator: \n"
-"Language-Team: Українська\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
-"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
+"POT-Creation-Date: 2022-12-19 13:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,28 +21,26 @@ msgid ""
 "A plugin designed to create a contact form layout of any complexity by "
 "dragging and dropping elements."
 msgstr ""
-"Плагін розроблений для створення макету контактних фом будь-якої складності "
-"за допомогою перетаскування елементів.  "
 
 #: widgets/container.php:85
 msgid "Align items"
-msgstr "Вирівнювання "
+msgstr ""
 
 #: widgets/container.php:77 widgets/container.php:91
 msgid "Between elements"
-msgstr "Поміж елементами"
+msgstr ""
 
 #: widgets/container.php:75 widgets/container.php:89 widgets/container.php:101
 msgid "Center"
-msgstr "Центр"
+msgstr ""
 
 #: widgets/form-tags.php:41
 msgid "Chose tag"
-msgstr "Оберіть тег"
+msgstr ""
 
 #: templates/admin-edit.php:23 widgets/code.php:25 widgets/code.php:32
 msgid "Code"
-msgstr "Код"
+msgstr ""
 
 #. Name of the plugin
 msgid "Contact Form 7 Flex editor"
@@ -50,51 +48,51 @@ msgstr ""
 
 #: widgets/container.php:25
 msgid "Container"
-msgstr "Контейнер "
+msgstr ""
 
 #: widgets/container.php:53
 msgid "Container width"
-msgstr "Ширина контейнеру"
+msgstr ""
 
 #: widgets/desc.php:25 widgets/desc.php:41
 msgid "Description"
-msgstr "Опис"
+msgstr ""
 
 #: widgets/container.php:41
 msgid "Direction"
-msgstr "Напрямок"
+msgstr ""
 
 #: widgets/space.php:41
 msgid "Distance"
-msgstr "Дистанція"
+msgstr ""
 
 #: widgets/container.php:109
 msgid "Distance between widgets"
-msgstr "Дистанція поміж елементами "
+msgstr ""
 
 #: widgets/container.php:76 widgets/container.php:90
 msgid "End"
-msgstr "Кінець"
+msgstr ""
 
 #: widgets/desc.php:43
 msgid "Enter description"
-msgstr "Введіть опис"
+msgstr ""
 
 #: widgets/WYSIWYG.php:43
 msgid "Enter text"
-msgstr "Введіть текс"
+msgstr ""
 
 #: widgets/title.php:43
 msgid "Enter title"
-msgstr "Введіть заголовок"
+msgstr ""
 
 #: widgets/label.php:41 widgets/label.php:43
 msgid "Field title"
-msgstr "Заголовок "
+msgstr ""
 
 #: templates/admin-edit.php:22
 msgid "Flex editor"
-msgstr "Flex редактор"
+msgstr ""
 
 #. URI of the plugin
 msgid "flex-editor.groswebdev.com/"
@@ -102,15 +100,15 @@ msgstr ""
 
 #: widgets/label.php:47
 msgid "For"
-msgstr "Для"
+msgstr ""
 
 #: includes/class-cfc-flex.php:156
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: widgets/form-tags.php:25
 msgid "Form tag generator"
-msgstr "Тег генератор форми"
+msgstr ""
 
 #. Author URI of the plugin
 msgid "groswebdev.com"
@@ -118,99 +116,98 @@ msgstr ""
 
 #: widgets/container.php:44
 msgid "Horizontally"
-msgstr "Горизонтально"
+msgstr ""
 
 #: widgets/container.php:46
 msgid "Horizontally in reverse order"
-msgstr "Горизонтально в зворотньому напрямку "
+msgstr ""
 
 #: widgets/code.php:34
 msgid "Just past your custom code"
-msgstr "Просто вставтьте свій код "
+msgstr ""
 
 #: widgets/container.php:71
 msgid "Justify content"
-msgstr "Розподіл елементів"
+msgstr ""
 
 #: widgets/label.php:25
 msgid "Label for input"
-msgstr "Мітка для поля вводу "
+msgstr ""
 
 #: includes/class-cfc-flex.php:155
 msgid "Layout"
-msgstr "Макет"
+msgstr ""
 
 #: widgets/container.php:100
 msgid "Left"
-msgstr "Зліва"
+msgstr ""
 
 #: templates/admin-edit.php:31
 msgid "Mixed content"
-msgstr "Мішаний контент"
+msgstr ""
 
 #: widgets/container.php:117
 msgid "Move to lines at the mod extension (768px)"
-msgstr "Перенести колонки в ряд на мобільному розширені (768px) "
+msgstr ""
 
 #: includes/class-cfc-flex.php:158
 msgid "Other"
-msgstr "Інше"
+msgstr ""
 
 #: widgets/container.php:124
 msgid "Reverse the lines on the mobile version"
-msgstr "Реверс строк на мобільній версії"
+msgstr ""
 
 #: widgets/container.php:102
 msgid "Right"
-msgstr "Зправа "
+msgstr ""
 
 #: widgets/container.php:79
 msgid "Same distance"
-msgstr "Рівна дистанція"
+msgstr ""
 
 #: templates/admin-edit.php:55
 msgid "Settings"
-msgstr "Налаштування"
+msgstr ""
 
 #: widgets/space.php:25
 msgid "Space"
-msgstr "Простір"
+msgstr ""
 
 #: widgets/container.php:74 widgets/container.php:88
 msgid "Start"
-msgstr "Старт"
+msgstr ""
 
 #: widgets/desc.php:47 widgets/title.php:47
 msgid "Tag"
-msgstr "Тег"
+msgstr ""
 
 #: widgets/form-tags.php:43
 msgid "Tag content"
-msgstr "Контен тегу"
+msgstr ""
 
 #: includes/class-cfc-flex.php:157 widgets/WYSIWYG.php:41
 msgid "Text"
-msgstr "Текст"
+msgstr ""
 
 #: widgets/container.php:97
 msgid "Text align"
-msgstr "Вирівнювання тексту"
+msgstr ""
 
 #: templates/admin-edit.php:35
 msgid "Thanks!"
-msgstr "Дякую!"
+msgstr ""
 
 #: includes/class-cfc-flex.php:184
 #, php-format
 msgid "The %s widget uses a category %s that is not registered"
-msgstr "Віджет %s використовує нерареєстровану категорію %s"
+msgstr ""
 
 #: includes/abstract-widget-class.php:54
 #, php-format
 msgid ""
 "The child class does not use the %s method. Widget output cannot be empty"
 msgstr ""
-"Дочірний класс не використовує %s метод. Вивод віджету не може бути порожнім "
 
 #: templates/admin-edit.php:92 templates/admin-edit.php:110
 msgid ""
@@ -220,70 +217,50 @@ msgid ""
 "                    Changes made here will be able to apply after "
 "maintaining the form."
 msgstr ""
-"Це сервісна вкладка. Вона створена для коригування і усунення зайвих частин "
-"коду наряму. Зміни тут приймуться після збереження форми. "
 
 #: widgets/title.php:25 widgets/title.php:41
 msgid "Title"
-msgstr "Заголовок"
+msgstr ""
 
 #: widgets/container.php:78
 msgid "Uniform distance"
-msgstr "Однакова дистанція"
+msgstr ""
 
 #: widgets/container.php:61
 msgid "Unit for changing the width of the container"
-msgstr "Одиниця виміру для ширини контейнеру"
+msgstr ""
 
 #: widgets/container.php:45
 msgid "Vertically"
-msgstr "Вертикально"
+msgstr ""
 
 #: widgets/container.php:47
 msgid "Vertically in reverse order"
-msgstr "Вертикально в зворотньому порядку"
+msgstr ""
 
 #: templates/admin-edit.php:91 templates/admin-edit.php:109
 msgid "Warning!"
-msgstr "Увага!"
+msgstr ""
 
 #: templates/admin-edit.php:32
-#| msgid ""
-#| "We found content that is not related to Flex editor. In order to keep the "
-#| "editor working as expected, we put all third-party content in the "
-#| "\"Code\" widget.\n"
-#| "                    To undo this behavior, don't save the form, disable "
-#| "the editor on the plugins page and go back to editing the form already "
-#| "without the editor. \n"
-#| "                    Or just delete widget with old code The ability to "
-#| "disable the editor on the form will be added soon. Stay with us."
 msgid ""
-"We found content that is not related to Flex editor. In order to keep the "
+"We found content that is not related to flex editor. In order to keep the "
 "editor working as expected, we put all third-party content in the \"Code\" "
-"widget.\n"
+"widget\n"
 "                    To undo this behavior, don't save the form, disable the "
 "editor on the plugins page and go back to editing the form already without "
 "the editor. \n"
-"                    Or just delete widget with old code. The ability to "
+"                    Or just delete widget with old code The ability to "
 "disable the editor on the form will be added soon. Stay with us."
 msgstr ""
-"Ми знайшли контент, який не має відношення до Flex-редактора . Для того, щоб "
-"редактор працював належним чином, ми помістили весь сторонній контент у "
-"віджет \"Код\".\n"
-"                    Щоб виправити таку поведінку, не зберігайте форму, "
-"відключіть редактор на сторінці плагінів і поверніться до редагування форми "
-"вже без редактора. \n"
-"                    Або просто видаліть віджет зі старим кодом. Можливість "
-"відключення редактора у формі буде додана найближчим часом. Залишайтеся з "
-"нами."
 
 #: templates/admin-edit.php:48
 msgid "Widgets"
-msgstr "Віджети"
+msgstr ""
 
 #: templates/admin-edit.php:24
 msgid "Widgets data"
-msgstr "Данні віджетів"
+msgstr ""
 
 #. Author of the plugin
 msgid "wladone3"

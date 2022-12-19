@@ -26,6 +26,15 @@ $description = sprintf( esc_html( $description ), $desc_link );
 
     <div class="cfc-wrapper-tabs__body">
         <div class="cfc-wrapper-tabs__content">
+
+            <div class="cfc-editor-notice" data-notice-type="mixed-content">
+                <h3><span class="icon-in-circle" aria-hidden="true">!</span><?php esc_html_e('Mixed content', 'cffe'); ?></h3>
+                <p><?php esc_html_e('We found content that is not related to Flex editor. In order to keep the editor working as expected, we put all third-party content in the "Code" widget.
+                    To undo this behavior, don\'t save the form, disable the editor on the plugins page and go back to editing the form already without the editor. 
+                    Or just delete widget with old code. The ability to disable the editor on the form will be added soon. Stay with us.', 'cffe'); ?></p>
+                <a href="#" data-action="hide"><?php esc_html_e('Thanks!', 'cffe'); ?></a>
+            </div>
+
             <div class="cfc">
                 <div class="cfc-container" id="cfc-container">
                     <?php echo $post->prop( 'form' ); ?>

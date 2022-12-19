@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Contact Form 7 Flex editor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-19 13:15+0000\n"
+"POT-Creation-Date: 2022-12-16 17:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -102,7 +102,7 @@ msgstr ""
 msgid "For"
 msgstr ""
 
-#: includes/class-cfc-flex.php:156
+#: includes/class-cfc-flex.php:153
 msgid "Form"
 msgstr ""
 
@@ -134,7 +134,7 @@ msgstr ""
 msgid "Label for input"
 msgstr ""
 
-#: includes/class-cfc-flex.php:155
+#: includes/class-cfc-flex.php:152
 msgid "Layout"
 msgstr ""
 
@@ -142,15 +142,11 @@ msgstr ""
 msgid "Left"
 msgstr ""
 
-#: templates/admin-edit.php:31
-msgid "Mixed content"
-msgstr ""
-
 #: widgets/container.php:117
 msgid "Move to lines at the mod extension (768px)"
 msgstr ""
 
-#: includes/class-cfc-flex.php:158
+#: includes/class-cfc-flex.php:155
 msgid "Other"
 msgstr ""
 
@@ -166,7 +162,7 @@ msgstr ""
 msgid "Same distance"
 msgstr ""
 
-#: templates/admin-edit.php:55
+#: templates/admin-edit.php:46
 msgid "Settings"
 msgstr ""
 
@@ -186,7 +182,7 @@ msgstr ""
 msgid "Tag content"
 msgstr ""
 
-#: includes/class-cfc-flex.php:157 widgets/WYSIWYG.php:41
+#: includes/class-cfc-flex.php:154 widgets/WYSIWYG.php:41
 msgid "Text"
 msgstr ""
 
@@ -194,11 +190,7 @@ msgstr ""
 msgid "Text align"
 msgstr ""
 
-#: templates/admin-edit.php:35
-msgid "Thanks!"
-msgstr ""
-
-#: includes/class-cfc-flex.php:184
+#: includes/class-cfc-flex.php:181
 #, php-format
 msgid "The %s widget uses a category %s that is not registered"
 msgstr ""
@@ -209,7 +201,7 @@ msgid ""
 "The child class does not use the %s method. Widget output cannot be empty"
 msgstr ""
 
-#: templates/admin-edit.php:92 templates/admin-edit.php:110
+#: templates/admin-edit.php:83 templates/admin-edit.php:101
 msgid ""
 "This is a service tab. \n"
 "                    It is designed to adjust and eliminate excess parts of "
@@ -238,23 +230,11 @@ msgstr ""
 msgid "Vertically in reverse order"
 msgstr ""
 
-#: templates/admin-edit.php:91 templates/admin-edit.php:109
+#: templates/admin-edit.php:82 templates/admin-edit.php:100
 msgid "Warning!"
 msgstr ""
 
-#: templates/admin-edit.php:32
-msgid ""
-"We found content that is not related to Flex editor. In order to keep the "
-"editor working as expected, we put all third-party content in the \"Code\" "
-"widget.\n"
-"                    To undo this behavior, don't save the form, disable the "
-"editor on the plugins page and go back to editing the form already without "
-"the editor. \n"
-"                    Or just delete widget with old code. The ability to "
-"disable the editor on the form will be added soon. Stay with us."
-msgstr ""
-
-#: templates/admin-edit.php:48
+#: templates/admin-edit.php:39
 msgid "Widgets"
 msgstr ""
 

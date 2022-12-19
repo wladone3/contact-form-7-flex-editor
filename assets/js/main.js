@@ -13,7 +13,7 @@ jQuery( function( $ ) {
         constructor() {
 
             /*
-             * Iportant selectors
+             * Important selectors
              *
              * It was created to be convenient to refer to the selectors,
              * but in fact turned out to be a bad idea
@@ -75,6 +75,8 @@ jQuery( function( $ ) {
                 },
                 revertOnSpill: true
             })
+
+            this.maybeMixedContent()
         }
 
         /**
@@ -118,6 +120,7 @@ jQuery( function( $ ) {
                     _this.changeState(this.dataset.settingId,val)
                 })
 
+                //for better work change setting
                 .on('focusin', '.cfc-control', function (e) {
                     _this.isEdit = this
                 })
@@ -163,15 +166,27 @@ jQuery( function( $ ) {
                     _this.removeWidgets(this)
                     _this.showWidgets()
                 })
+
+                //hide editor notice
+                .on('click', '.cfc-editor-notice a', function (e) {
+                    e.preventDefault()
+
+                    switch ( this.dataset.action ) {
+                        case 'hide': {
+                            $(this).parents('.cfc-editor-notice').slideUp(300)
+                        }
+                    }
+                })
+
         }
 
         /*
         * Insert widget after drop
         * */
-        insertWidget(el, target, source, siblings) {
+        insertWidget(el, target, source, siblings, force = false) {
             const _this = this;
 
-            if ( source.classList.contains('cfc-panel__tab__widgets') ) {
+            if ( source.classList.contains('cfc-panel__tab__widgets') || force ) {
                 //delete current placeholder
                 el.remove()
 
@@ -393,18 +408,32 @@ jQuery( function( $ ) {
         * Close the settings window when clicking past
         * */
         maybeCloseSettings(e) {
-            var panel   = $('.' + this.cfcPanelClassName ),
-                field   = $('.' + this.cfcfieldClassName ),
-                mce     = $('.mce-container-body.mce-stack-layout'),
-                mediaInsert = $('.media-button-insert')
+            var panel  = $('.' + this.cfcPanelClassName ),
+                field  = $('.' + this.cfcfieldClassName ),
+                mce    = $('.mce-container-body.mce-stack-layout'),
+                mediaInsert         = $('.media-button-insert'),
+                isNeedCloseSetting  = false;
 
             if (
                 panel.has(e.target).length === 0 &&
                 this.isSettingsSectionOpen && ! field.has(e.target).length
-                && ! $('body').hasClass('modal-open')
-                && mce.has(e.target) === 0
-                && mediaInsert.has(e.target) === 0
-            ){
+            ) {
+                isNeedCloseSetting = true;
+            }
+
+            if ( $('body').hasClass('modal-open') ){
+                isNeedCloseSetting = false;
+            }
+
+            if ( mce.has(e.target) === 0 ) {
+                isNeedCloseSetting = false;
+            }
+
+            if ( mediaInsert.has(e.target) === 0) {
+                isNeedCloseSetting = false;
+            }
+
+            if ( isNeedCloseSetting ) {
                 this.showWidgets()
             }
         }
@@ -421,7 +450,6 @@ jQuery( function( $ ) {
             let field = $(el).parents( '.' + this.cfcfieldClassName)[0],
                 childrenFields = $(field).find('.' + this.cfcfieldClassName),
                 _this = this
-
 
             if ( childrenFields.length ) {
                 $(childrenFields).each(function (i, chField) {
@@ -482,6 +510,7 @@ jQuery( function( $ ) {
             $(this.elWidgets).show()
 
             this.isSettingsSectionOpen = false
+            $('.cfc-field').removeClass('active')
         }
 
         /*
@@ -502,6 +531,14 @@ jQuery( function( $ ) {
 
             this.renderSettings()
             this.maybeUpdateCustom()
+
+
+            //remove all active classes
+            $('.cfc-field').removeClass('active')
+            const currentId = this.widgetContext.widgetId;
+
+            //highlighting current widget
+            $(`.cfc-field[data-cfc-widget-id=${currentId}]`).addClass('active')
         }
 
         /*
@@ -531,6 +568,13 @@ jQuery( function( $ ) {
                     el.classList.remove('.gu-transit')
                 })
 
+                //remove all active classes
+                contents.querySelectorAll('.cfc-field').forEach((el, i) => {
+                    if ( el.classList.contains('active')  ){
+                        el.classList.remove('active')
+                    }
+                })
+
                 $('#wpcf7-form').val(contents.innerHTML.replaceAll(/\s\s/g, ' '))
             }, 10)
         }
@@ -552,6 +596,52 @@ jQuery( function( $ ) {
             }
 
             return result;
+        }
+
+        /*
+        * Check the form for foreign elements
+        * */
+        maybeMixedContent() {
+            let copyForAnalysis = this.elContainer;
+            if ( ! copyForAnalysis.hasChildNodes() ) return;
+
+            let strangeNodes = [];
+
+            copyForAnalysis.childNodes.forEach((el, i) => {
+                if (el.nodeName === '#text') {
+                    //clear \n
+                    let text = el.textContent.replaceAll(/\\n/g, '').trim()
+                    if ( text ) {
+                        strangeNodes.push(el)
+                        return
+                    }
+                }
+
+                if ( el.classList && ! el.classList.contains('cfc-field') ) {
+                    strangeNodes.push(el)
+                }
+            })
+
+            if ( strangeNodes.length ) {
+                $('.cfc-editor-notice[data-notice-type=mixed-content]').slideDown(300)
+
+                var tmp = document.createElement("div");
+                strangeNodes.forEach((el, i) => {
+                    el.remove()
+                    tmp.appendChild(el);
+                })
+
+                this.insertWidget(
+                    document.querySelector('.cfc-widget[data-widget-name=cfc-code]'),
+                    this.elContainer,
+                    this.elWidgets,
+                    this.elContainer.querySelector('.cfc-field'),
+                    true
+                )
+
+                this.changeState('code', tmp.innerHTML)
+                this.showWidgets()
+            }
         }
 
         /*
@@ -732,6 +822,8 @@ jQuery( function( $ ) {
         return text.replace(/&amp;|&lt;|&gt;|&quot;|&#039;/g, function(m) { return map[m]; });
     }
 
+
+
     /*
     * Editor tabs
     * */
@@ -745,6 +837,7 @@ jQuery( function( $ ) {
             .hide()
             .eq(index).show()
     })
+
 });
 
 

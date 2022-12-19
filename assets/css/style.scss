@@ -119,7 +119,6 @@
 .cfc-field {
   position: relative;
   min-height: 10px;
-  width: 100%;
 
   &:hover>.admin-controls{
     display: flex;
@@ -167,6 +166,14 @@
 
   &:hover {
     box-shadow: 0 0 0 1px #71d7f7;
+  }
+
+  &.active {
+    box-shadow: 0 0 0 1px #71d7f7;
+
+    &.cfc-field-flex-container {
+      box-shadow: 0 0 0 1px rgb(255 0 0);
+    }
   }
 }
 
@@ -368,4 +375,12 @@
   h4, p {
     margin: 0;
   }
+}
+
+//eror
+.cfc-editor-notice {
+  display: none;
+  padding: 15px;
+  background-color: #fff;
+  margin: 15px 0;
 }
