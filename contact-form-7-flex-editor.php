@@ -1,26 +1,24 @@
 <?php
 /*
-* Plugin Name: Contact Form 7 Flex editor
+ * Plugin Name: Flex editor for Contact Form 7
  * Description: A plugin designed to create a contact form layout of any complexity by dragging and dropping elements.
- * Plugin URI:  flex-editor.groswebdev.com/
- * Author URI:  groswebdev.com
+ * Plugin URI:  https://github.com/wladone3/flex-editor-for-contact-form-7
  * Author:      wladone3
  *
  * Text Domain: cffe
  * Domain Path: /i18n
  *
  * Requires PHP: 7.4
- * Requires at least: 5.4
+ * Requires at least: 7.2
  *
  * License:     GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
- * Network:     true
- * Version:     0.2
+ * Version:     0.2.3
 */
 define ('FCF_DIR',         plugin_dir_path(__FILE__ ));    //for require php file
 define ('FCF_ASSETS',      plugin_dir_url(__FILE__));      //directory to assets files
-define ('FCF_VERSION',      '0.2.1');
+define ('FCF_VERSION',      '0.2.3');
 
 add_action( 'plugins_loaded', 'cffe_onload' );
 function cffe_onload() {
