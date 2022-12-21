@@ -1,6 +1,6 @@
 # Flex editor for contact form 7
 
-![Preview](https://groswebdev.com/cffe-data/prewiew.png)
+![Preview exapmle](https://groswebdev.com/cffe-data/prewiew2.png)
 
 The plugin adds the ability to create forms of any complexity by dragging and dropping elements to Contact form 7 plugin. The most important feature that the application provides is the creation of forms without coding. This is a huge advantage for you, as at any time you can quickly and easily create or edit a contact form without the involvement of specialists.
 
