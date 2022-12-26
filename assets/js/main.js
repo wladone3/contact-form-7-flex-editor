@@ -695,6 +695,8 @@ jQuery( function( $ ) {
                 });
             }
 
+
+
         }
 
         /*
@@ -710,7 +712,7 @@ jQuery( function( $ ) {
     /*
     * Init class
     * */
-    let cffe = new CFFE()
+    window.cffe = new CFFE()
 
     /*
     * insert content from tag generator to our field

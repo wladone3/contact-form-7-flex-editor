@@ -83,7 +83,7 @@ final class CFFE_Plugin {
      * @since 0.2
      * */
     private function init() {
-        require FCF_DIR . 'includes/controller-class.php';
+        require CFFE_DIR . 'includes/controller-class.php';
 
         $this->controller = new CFFE_Controller();
     }
@@ -118,13 +118,13 @@ final class CFFE_Plugin {
      * @since 0.2
      * */
     private function register_widgets() {
-        require FCF_DIR . 'widgets/container.php';
-        require FCF_DIR . 'widgets/form-tags.php';
-        require FCF_DIR . 'widgets/space.php';
-        require FCF_DIR . 'widgets/label.php';
-        require FCF_DIR . 'widgets/title.php';
-        require FCF_DIR . 'widgets/desc.php';
-        require FCF_DIR . 'widgets/code.php';
+        require CFFE_DIR . 'widgets/container.php';
+        require CFFE_DIR . 'widgets/form-tags.php';
+        require CFFE_DIR . 'widgets/space.php';
+        require CFFE_DIR . 'widgets/label.php';
+        require CFFE_DIR . 'widgets/title.php';
+        require CFFE_DIR . 'widgets/desc.php';
+        require CFFE_DIR . 'widgets/code.php';
 
         $this->widgets[] = new CFC_Flex_Container;
         $this->widgets[] = new CFC_Tag_Generator;
@@ -135,7 +135,7 @@ final class CFFE_Plugin {
         $this->widgets[] = new CFC_Code;
 
         // todo когда подключаем редактор не отображаются иконки
-        //require FCF_DIR . 'widgets/WYSIWYG.php';
+        //require CFFE_DIR . 'widgets/WYSIWYG.php';
         //$this->widgets[] = new CFC_WYSIWYG;
 
         /**
@@ -237,13 +237,13 @@ final class CFFE_Plugin {
         }
 
         //drag-n-drop
-        wp_enqueue_style('dragula',FCF_ASSETS . 'assets/libs/dracula/dragula.min.css', [],  );
-        wp_enqueue_script('dragula', FCF_ASSETS . 'assets/libs/dracula/dragula.min.js', [], FCF_VERSION, true);
+        wp_enqueue_style('dragula',CFFE_ASSETS . 'assets/libs/dracula/dragula.min.css', [],  );
+        wp_enqueue_script('dragula', CFFE_ASSETS . 'assets/libs/dracula/dragula.min.js', [], CFFE_VERSION, true);
 
         //main styles
-        wp_enqueue_style('fcf-front',FCF_ASSETS . 'assets/css/front.css', [] );
-        wp_enqueue_style('fcf',FCF_ASSETS . 'assets/css/style.css', [] );
-        wp_enqueue_script('fcf', FCF_ASSETS . 'assets/js/main.js', ['wpcf7-admin-taggenerator'], FCF_VERSION, true);
+        wp_enqueue_style('fcf-front',CFFE_ASSETS . 'assets/css/front.css', [] );
+        wp_enqueue_style('fcf',CFFE_ASSETS . 'assets/css/style.css', [] );
+        wp_enqueue_script('fcf', CFFE_ASSETS . 'assets/js/main.js', ['wpcf7-admin-taggenerator'], CFFE_VERSION, true);
 
         wp_add_inline_script( 'fcf', 'const CFCWidgetsData = ' . json_encode( $this->get_front_data() ), 'before' );
     }
@@ -254,7 +254,7 @@ final class CFFE_Plugin {
      * @sicne 0.2
      * */
     public function enqueue_scripts_action() {
-        wp_enqueue_style('fcf',FCF_ASSETS . 'assets/css/front.css', [] );
+        wp_enqueue_style('fcf',CFFE_ASSETS . 'assets/css/front.css', [] );
     }
 
     /**

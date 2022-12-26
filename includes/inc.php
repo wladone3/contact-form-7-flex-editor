@@ -16,12 +16,45 @@ if ( ! function_exists('cffe_get_template')) {
         }
 
         ob_start();
-        require FCF_DIR . $template_name;
+        require CFFE_DIR . $template_name;
 
         if ( $echo ) {
             echo ob_get_clean();
         } else {
             return ob_get_clean();
+        }
+    }
+}
+
+if ( ! function_exists('cffe_is_cf_active') ) {
+    /**
+     * Check is contact form 7 is active
+     *
+     * @return bool
+     * */
+    function cffe_is_contact_form_active() {
+        return defined('WPCF7_VERSION');
+    }
+}
+
+if ( ! function_exists('cffe_admin_notice') ) {
+    /**
+     * Admin notice
+     * @hooked admin_notices
+     * */
+    function cffe_admin_notice() {
+        if ( ! cffe_is_contact_form_active() ) {
+            ?>
+            <div class="cffe-admin-notice notice notice-warning is-dismissible" >
+                <p>
+                    <?php echo sprintf(
+                        '<strong>Flex editor for Contact Form 7</strong> %s <a target="_blank" href="%s">Contact Form 7</a>',
+                            esc_html__('depends on Contact Form 7. Please install', 'cffe'),
+                            esc_url(get_site_url() . '/wp-admin/plugin-install.php?s=Contact%2520Form%25207&tab=search&type=term'),
+                    ) ?>
+                </p>
+            </div>
+            <?php
         }
     }
 }
