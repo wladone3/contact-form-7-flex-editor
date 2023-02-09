@@ -1,3 +1,7 @@
+:root {
+  --cfc-mob_width: 768px;
+}
+
 .wpcf7-form {
   display: flex;
   flex-direction: column;
@@ -32,7 +36,7 @@
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: var(--cfc-mob_width) ) {
     &.adaptive {
       flex-direction: column;
 
@@ -99,5 +103,16 @@
 .cfc-field-content {
   h1, h2, h3, h4, h5, h6, p {
     margin: 0;
+    padding: 0;
+  }
+}
+
+.divider {
+  display: flex;
+
+  span {
+    display: block;
+    height: 1px;
+    width: 100%;
   }
 }

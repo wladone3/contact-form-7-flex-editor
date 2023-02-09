@@ -39,6 +39,7 @@ final class CFFE_Controller {
             'WYSIWYG'       => [$this, 'wysiwyg'],
             'textarea_code' => [$this, 'textarea_code'],
             'checkbox'      => [$this, 'checkbox'],
+            'color'         => [$this, 'color'],
         ];
 
         /**
@@ -273,6 +274,17 @@ final class CFFE_Controller {
                 class="cfc-control"
                 data-setting-id="<?php echo $args['setting_id'] ?>"
                 value="<?php echo $args['return'] ?>"
+                name="<?php echo $args['setting_id'] ?>"
+        >
+    <?php }
+
+    public function color($args) {
+        ?>
+        <input
+                type="color"
+                class="cfc-control"
+                data-setting-id="<?php echo $args['setting_id'] ?>"
+                value="<?php echo $args['default'] ?>"
                 name="<?php echo $args['setting_id'] ?>"
         >
     <?php }

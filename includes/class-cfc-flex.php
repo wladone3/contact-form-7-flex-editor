@@ -119,16 +119,18 @@ final class CFFE_Plugin {
      * */
     private function register_widgets() {
         require CFFE_DIR . 'widgets/container.php';
-        require CFFE_DIR . 'widgets/form-tags.php';
         require CFFE_DIR . 'widgets/space.php';
+        require CFFE_DIR . 'widgets/divider.php';
+        require CFFE_DIR . 'widgets/form-tags.php';
         require CFFE_DIR . 'widgets/label.php';
         require CFFE_DIR . 'widgets/title.php';
         require CFFE_DIR . 'widgets/desc.php';
         require CFFE_DIR . 'widgets/code.php';
 
         $this->widgets[] = new CFC_Flex_Container;
-        $this->widgets[] = new CFC_Tag_Generator;
         $this->widgets[] = new CFC_Space;
+        $this->widgets[] = new CFC_Divider;
+        $this->widgets[] = new CFC_Tag_Generator;
         $this->widgets[] = new CFC_Label;
         $this->widgets[] = new CFC_Title;
         $this->widgets[] = new CFC_Description;
@@ -347,6 +349,7 @@ final class CFFE_Plugin {
 
         return $template;
     }
+
 }
 
 if ( ! function_exists('CFFE') ) {
